@@ -41,7 +41,7 @@ trait AssertException
 	 * @param string $exceptionClass
 	 * @return string
 	 */
-	private static function fixExceptionClass($exceptionClass)
+	private static function fixExceptionClass($exceptionClass): string
 	{
 		if ($exceptionClass === null) {
 			$exceptionClass = Exception::class;
@@ -67,7 +67,7 @@ trait AssertException
 	 * @param \Exception $exception
 	 * @param string $expectedExceptionClass
 	 */
-	private static function checkExceptionInstanceOf(Exception $exception, $expectedExceptionClass)
+	private static function checkExceptionInstanceOf(Exception $exception, string $expectedExceptionClass)
 	{
 		$message = $exception->getMessage();
 		$code = $exception->getCode();
@@ -110,7 +110,7 @@ trait AssertException
 	/**
 	 * @param string $expectedExceptionClass
 	 */
-	private static function failAssertingException($expectedExceptionClass)
+	private static function failAssertingException(string $expectedExceptionClass)
 	{
 		$details = '';
 		if ($expectedExceptionClass !== Exception::class) {
